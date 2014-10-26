@@ -27,7 +27,7 @@ describe('reqmarkable loader', function(){
 			}
 		});
 		requirejs(['reqmarkable!test/fixtures/hyperlink.md'], function(md){
-			assert.equal(md, '<p><a href="http://github.com">http://github.com</a></p>\n');
+			assert.equal(md, '<p><a href="https://github.com">https://github.com</a></p>\n');
 			done();
 		});
 	});
@@ -69,7 +69,11 @@ describe('reqmarkable writer', function(done){
 		}, function(){
 			var exec = require('child_process').exec;
 			var process = exec('phantomjs test/loadindex.js', function(err, stdout){
-				assert(stdout.indexOf('true') > -1);
+				if (err){
+					assert(false);
+				} else {
+					assert(stdout.indexOf('<h1>h1</h1>') > -1);
+				}
 				done();
 			});
 		});

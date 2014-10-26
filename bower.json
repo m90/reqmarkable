@@ -1,6 +1,6 @@
 {
   "name": "reqmarkable",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "requirejs loader plugin for the Remarkable markdown parser",
   "authors": [
     "Frederik Ring <frederik.ring@gmail.com>"

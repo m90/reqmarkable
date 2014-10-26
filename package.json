@@ -1,6 +1,6 @@
 {
   "name": "reqmarkable",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "requirejs loader plugin for the remarkable markdown parser",
   "url": "https://github.com/m90/reqmarkable",
   "bugs": {
@@ -30,8 +30,5 @@
     "mocha": "^2.0.1",
     "phantomjs": "^1.9.11",
     "requirejs": "^2.1.15"
-  },
-  "dependencies": {
-    "phantom": "^0.7.0"
   }
 }

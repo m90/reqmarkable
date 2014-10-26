@@ -28,7 +28,7 @@ define(['text', 'remarkable'], function(text, Remarkable){
 			text.get(parentRequire.toUrl(name), function(markdownString){
 				var result = md.render(markdownString);
 				if (config.isBuild){
-					buildMap[name] = result.replace(/\r?\n|\r/g, '');
+					buildMap[name] = result.replace(/\n/g, '\\n');
 				}
 				onload(result);
 			});
