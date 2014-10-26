@@ -9,7 +9,22 @@ define(['text', 'remarkable'], function(text, Remarkable){
 			}
 		}
 		, load: function (name, parentRequire, onload, config){
-			var md = new Remarkable(config.reqmarkable || {});
+
+			var md, options, typographer;
+
+			options = config.reqmarkable || {};
+
+			if (config.reqmarkable && Object.prototype.toString.call(config.reqmarkable.typographer) === '[object Object]'){
+				typographer = JSON.parse(JSON.stringify(config.reqmarkable.typographer));
+				options.typographer = true;
+			}
+
+			md = new Remarkable(options);
+
+			if (typographer){
+				md.typographer.set(typographer);
+			}
+
 			text.get(parentRequire.toUrl(name), function(markdownString){
 				var result = md.render(markdownString);
 				if (config.isBuild){

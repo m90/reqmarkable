@@ -18,7 +18,7 @@ describe('reqmarkable loader', function(){
 			assert.equal(md, '<h1>h1</h1>\n<h2>h2</h2>\n<h3>h3</h3>\n<h4>h4</h4>\n<h5>h5</h5>\n<h6>h6</h6>\n');
 			done();
 		});
-	})
+	});
 
 	it('should respect configuration', function(done){
 		requirejs.config({
@@ -30,7 +30,21 @@ describe('reqmarkable loader', function(){
 			assert.equal(md, '<p><a href="http://github.com">http://github.com</a></p>\n');
 			done();
 		});
-	})
+	});
+
+	it('can pass options to the typographer', function(done){
+		requirejs.config({
+			reqmarkable : {
+				typographer : {
+					copyright: true
+				}
+			}
+		});
+		requirejs(['reqmarkable!test/fixtures/copyright.md'], function(md){
+			assert.equal(md, '<p>©</p>\n');
+			done();
+		});
+	});
 
 });
 

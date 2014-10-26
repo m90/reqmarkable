@@ -1,13 +1,13 @@
 # reqmarkable
 > a loader plugin for loading Markdown files in requirejs, using the [Remarkable Markdown Parser][1]
 
-## Install the plugin and its dependencies using bower:
+## Install the plugin and its dependencies using bower
 ```sh
 $ bower install reqmarkable --save
 ```
 If you prefer a manual install, make sure to satisfy the `remarkable` and `text` dependencies.
 
-## Simple usage:
+## Simple usage
 First, make sure the module names `remarkable` and `text` resolve to the proper locations (both are installed alongside the loader when you are using bower):
 ```js
 requirejs.config({
@@ -36,9 +36,22 @@ requirejs.config({
     }
 });
 ```
+
+To use Remarkable's "typographer" feature, just add its configuration to the `typographer` key of the config object:
+```js
+requirejs.config({
+    reqmarkable : {
+        typographer : {
+            copyright: true,
+            ellipsis: true
+        }
+    }
+});
+```
+
 For a full list of options, see the [Remarkable repository][1].
 
-## Build time:
+## Build time
 On build time you can simply use `stubModules` in your build config to get rid of the Parser in the file you ship to production:
 ```js
 ({
