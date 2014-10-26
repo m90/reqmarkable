@@ -1,0 +1,41 @@
+{
+  "name": "reqmarkable",
+  "version": "0.1.0",
+  "description": "requirejs loader plugin for the Remarkable markdown parser",
+  "authors": [
+    "Frederik Ring <frederik.ring@gmail.com>"
+  ],
+  "main": "reqmarkable.js",
+  "keywords": [
+    "amd",
+    "plugin",
+    "requirejs",
+    "loader",
+    "markdown",
+    "remarkable"
+  ],
+  "bugs": {
+    "url": "https://github.com/m90/reqmarkable/issues"
+  },
+  "url": "https://github.com/m90/reqmarkable",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/m90/reqmarkable.git"
+  },
+  "dependencies": {
+    "remarkable": "~1.2.0",
+    "requirejs-text": "~2.0.12"
+  },
+  "devDependencies": {
+    "requirejs": "~2.1.15",
+    "almond": "~0.3.0"
+  }
+}
