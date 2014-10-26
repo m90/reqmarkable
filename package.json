@@ -28,6 +28,10 @@
   "devDependencies": {
     "jshint": "^2.5.6",
     "mocha": "^2.0.1",
+    "phantomjs": "^1.9.11",
     "requirejs": "^2.1.15"
+  },
+  "dependencies": {
+    "phantom": "^0.7.0"
   }
 }

@@ -50,6 +50,9 @@ describe('reqmarkable loader', function(){
 
 describe('reqmarkable writer', function(done){
 	it('compiles markdown into dependency-less modules', function(done){
+
+		this.timeout(7500);
+
 		requirejs.optimize({
 			baseUrl : '.'
 			, name : './bower_components/almond/almond'
@@ -64,8 +67,11 @@ describe('reqmarkable writer', function(done){
 			, stubModules : ['text', 'remarkable', 'reqmarkable']
 			, out: 'test/main-built.js'
 		}, function(){
-			assert(true);
-			done();
+			var exec = require('child_process').exec;
+			var process = exec('phantomjs test/loadindex.js', function(err, stdout){
+				assert(stdout.indexOf('true') > -1);
+				done();
+			});
 		});
 
 	});
