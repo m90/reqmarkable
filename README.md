@@ -1,5 +1,5 @@
 # reqmarkable
-> a loader plugin for loading Markdown files in requirejs, using the [Remarkable Markdown Parser](1)
+> a loader plugin for loading Markdown files in requirejs, using the [Remarkable Markdown Parser][1]
 
 ## Install the plugin and its dependencies using bower:
 ```sh
@@ -36,7 +36,7 @@ requirejs.config({
     }
 });
 ```
-For a full list of options, see the [Remarkable repository](1).
+For a full list of options, see the [Remarkable repository][1].
 
 ## Build time:
 On build time you can simply use `stubModules` in your build config to get rid of the Parser in the file you ship to production:
