@@ -36,7 +36,7 @@ define(['text', 'remarkable'], function(text, Remarkable){
 			}
 
 
-			if (config.highlight){
+			if (config.reqmarkable.highlight){
 				require(['highlightjs'], function(hljs){
 					options.highlight = function(str, lang){
 						if (lang && hljs.getLanguage(lang)){

@@ -49,7 +49,9 @@ describe('reqmarkable loader', function(){
 
 	it('will highlight fenced code blocks if options is set', function(done){
 		requirejs.config({
-			highlight : true
+			reqmarkable : {
+				highlight : true
+			}
 		});
 		requirejs(['reqmarkable!test/fixtures/code.md'], function(md){
 			assert(md.indexOf('<code class="language-javascript">' > -1));
