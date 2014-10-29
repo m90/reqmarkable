@@ -73,11 +73,12 @@ describe('reqmarkable writer', function(done){
 				'text' : './bower_components/requirejs-text/text'
 				, 'remarkable' : './bower_components/remarkable/dist/remarkable'
 				, 'reqmarkable' : './reqmarkable'
+				, 'highlightjs' : './bower_components/highlightjs-amd/highlight.pack'
 			}
 			, optimize : 'none'
 			, include : ['./test/main']
 			, inlineText : false
-			, stubModules : ['text', 'remarkable', 'reqmarkable']
+			, stubModules : ['text', 'remarkable', 'reqmarkable', 'highlightjs']
 			, out: 'test/main-built.js'
 		}, function(){
 			var exec = require('child_process').exec;

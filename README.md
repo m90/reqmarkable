@@ -15,7 +15,7 @@ requirejs.config({
         reqmarkable : './bower_components/reqmarkable/reqmarkable',
         remarkable : './bower_components/remarkable/dist/remarkable',
         text : './bower_components/requirejs-text/text'
-        highlights : './bower_components/highlightjs-amd/highlight.pack' // only needed if you want to use syntax highlighting
+        highlights : './bower_components/highlightjs-amd/highlight.pack'
     }
 });
 ```

@@ -1,6 +1,6 @@
 {
   "name": "reqmarkable",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "requirejs loader plugin for the remarkable markdown parser",
   "url": "https://github.com/m90/reqmarkable",
   "bugs": {
