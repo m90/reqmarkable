@@ -4,3 +4,6 @@
 #### h4
 ##### h5
 ###### h6
+```javascript
+console.log('Hello World');
+```

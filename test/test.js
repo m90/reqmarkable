@@ -7,6 +7,7 @@ requirejs.config({
 	, paths : {
 		'text' : './bower_components/requirejs-text/text'
 		, 'remarkable' : './bower_components/remarkable/dist/remarkable'
+		, 'highlightjs' : './bower_components/highlightjs-amd/highlight.pack'
 		, 'reqmarkable' : './reqmarkable'
 	}
 });
@@ -15,7 +16,7 @@ describe('reqmarkable loader', function(){
 
 	it('should render markdown into HTML', function(done){
 		requirejs(['reqmarkable!test/fixtures/test.md'], function(md){
-			assert.equal(md, '<h1>h1</h1>\n<h2>h2</h2>\n<h3>h3</h3>\n<h4>h4</h4>\n<h5>h5</h5>\n<h6>h6</h6>\n');
+			assert(md.indexOf('<h1>h1</h1>\n<h2>h2</h2>\n<h3>h3</h3>\n<h4>h4</h4>\n<h5>h5</h5>\n<h6>h6</h6>\n') > -1);
 			done();
 		});
 	});
@@ -42,6 +43,16 @@ describe('reqmarkable loader', function(){
 		});
 		requirejs(['reqmarkable!test/fixtures/copyright.md'], function(md){
 			assert.equal(md, '<p>©</p>\n');
+			done();
+		});
+	});
+
+	it('will highlight fenced code blocks if options is set', function(done){
+		requirejs.config({
+			highlight : true
+		});
+		requirejs(['reqmarkable!test/fixtures/code.md'], function(md){
+			assert(md.indexOf('<code class="language-javascript">' > -1));
 			done();
 		});
 	});

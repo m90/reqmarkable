@@ -10,7 +10,23 @@ define(['text', 'remarkable'], function(text, Remarkable){
 		}
 		, load: function (name, parentRequire, onload, config){
 
-			var md, options, typographer;
+			function doLoad(options){
+				var md = new Remarkable(options);
+
+				if (typographer){
+					md.typographer.set(typographer);
+				}
+
+				text.get(parentRequire.toUrl(name), function(markdownString){
+					var result = md.render(markdownString);
+					if (config.isBuild){
+						buildMap[name] = result.replace(/\n/g, '\\n').replace(/"/g,'\\"');
+					}
+					onload(result);
+				});
+			}
+
+			var options, typographer;
 
 			options = config.reqmarkable || {};
 
@@ -19,19 +35,28 @@ define(['text', 'remarkable'], function(text, Remarkable){
 				options.typographer = true;
 			}
 
-			md = new Remarkable(options);
 
-			if (typographer){
-				md.typographer.set(typographer);
+			if (config.highlight){
+				require(['highlightjs'], function(hljs){
+					options.highlight = function(str, lang){
+						if (lang && hljs.getLanguage(lang)){
+							try {
+								return hljs.highlight(lang, str).value;
+							} catch(e){}
+						}
+
+						try {
+							return hljs.highlightAuto(str).value;
+						} catch(e){}
+
+						return ''; // use external default escaping
+					};
+					doLoad(options);
+				});
+			} else {
+				doLoad(options);
 			}
 
-			text.get(parentRequire.toUrl(name), function(markdownString){
-				var result = md.render(markdownString);
-				if (config.isBuild){
-					buildMap[name] = result.replace(/\n/g, '\\n').replace(/"/g,'\\"');
-				}
-				onload(result);
-			});
 		}
 		, version : '0.1.0'
 	};
