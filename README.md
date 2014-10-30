@@ -1,4 +1,7 @@
 # reqmarkable
+
+[![Build Status](https://travis-ci.org/m90/reqmarkable.svg)](https://travis-ci.org/m90/reqmarkable)
+
 > a loader plugin for loading Markdown files in requirejs, using the [Remarkable Markdown Parser][1]
 
 ## Install the plugin and its dependencies using bower
