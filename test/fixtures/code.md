@@ -1,3 +1,3 @@
 ```javascript
-console.log('O HAI');
+console.log('Hello World!');
 ```

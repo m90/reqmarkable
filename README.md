@@ -18,6 +18,7 @@ requirejs.config({
         reqmarkable : './bower_components/reqmarkable/reqmarkable',
         remarkable : './bower_components/remarkable/dist/remarkable',
         text : './bower_components/requirejs-text/text'
+        highlights : './bower_components/highlightjs-amd/highlight.pack'
     }
 });
 ```
@@ -52,13 +53,24 @@ requirejs.config({
 });
 ```
 
+If you want to use `highlight.js`' syntax highlighting, just pass `highlight: true`:
+```js
+requirejs.config({
+    reqmarkable : {
+        highlight: true
+    }
+});
+```
+
+
+
 For a full list of options, see the [Remarkable repository][1].
 
 ## Build time
 On build time you can simply use `stubModules` in your build config to get rid of the Parser in the file you ship to production:
 ```js
 ({
-    stubModules: ['text','remarkable','reqmarkable']
+    stubModules: ['text', 'remarkable', 'reqmarkable', 'highlightjs']
 })
 ```
 

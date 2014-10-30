@@ -1,6 +1,6 @@
 {
   "name": "reqmarkable",
-  "version": "0.1.2",
+  "version": "0.2.2",
   "description": "requirejs loader plugin for the Remarkable markdown parser",
   "authors": [
     "Frederik Ring <frederik.ring@gmail.com>"
@@ -32,7 +32,8 @@
   },
   "dependencies": {
     "remarkable": "~1.2.0",
-    "requirejs-text": "~2.0.12"
+    "requirejs-text": "~2.0.12",
+    "highlightjs-amd": "~8.0.1"
   },
   "devDependencies": {
     "requirejs": "~2.1.15",
