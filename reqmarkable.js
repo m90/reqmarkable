@@ -36,11 +36,17 @@ define(['text', 'remarkable', 'highlightjs'], function(text, Remarkable, hljs){
 				};
 			}
 
-			md = new Remarkable(options);
 
 			if (typographer){
-				md.typographer.set(typographer);
+				options.typographer = true;
+				for (var key in typographer){
+					if (typographer.hasOwnProperty(key)){
+						options[key] = typographer[key];
+					}
+				}
 			}
+
+			md = new Remarkable(options);
 
 			text.get(parentRequire.toUrl(name), function(markdownString){
 				var result = md.render(markdownString);
@@ -51,6 +57,6 @@ define(['text', 'remarkable', 'highlightjs'], function(text, Remarkable, hljs){
 			});
 
 		}
-		, version : '0.1.0'
+		, version : '0.3.0'
 	};
 });
